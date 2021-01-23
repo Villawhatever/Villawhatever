@@ -14,6 +14,7 @@ namespace Villawhatever.Resources
 				Black = Black,
 				White = White,
 				Primary = Primary,
+				PrimaryContrastText = PrimaryContrastText,
 				Secondary = Secondary,
 				Tertiary = Tertiary,
 				Info = Info,
@@ -38,7 +39,6 @@ namespace Villawhatever.Resources
 				LinesDefault = LinesDefault,
 				LinesInputs = LinesInputs,
 				Divider = Divider,
-				// HoverOpacity is missing?
 				GrayDefault = GrayDefault,
 				GrayLight = GrayLight,
 				GrayLighter = GrayLighter,
@@ -50,6 +50,7 @@ namespace Villawhatever.Resources
         public string Black { get; set; } = "#000000";
         public string White { get; set; } = "#FFFFFF";
         public string Primary { get; set; } = "#594AE2";
+		public string PrimaryContrastText { get; set; } = "#FFFFFF";
 		public string Secondary { get; set; } = "#625192";
         public string Tertiary { get; set; } = "#1EC8A5";
         public string Info { get; set; } = "#2196F3";
