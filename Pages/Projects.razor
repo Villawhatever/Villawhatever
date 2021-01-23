@@ -1,0 +1,44 @@
+﻿<MudContainer Class="mt-16">
+    <MudText Typo="Typo.h3" Align="Align.Center" GutterBottom="true">Projects</MudText>
+    <MudGrid Class="mt-8" Justify="Justify.SpaceAround">
+        <MudItem xs="12" sm="6">
+            <MudCard Elevation="25" Class="rounded-lg pb-4">
+                <MudCardHeader>
+                    <CardHeaderContent>
+                        <MudText Typo="Typo.h5" Align="Align.Center">Fryatog</MudText>
+                    </CardHeaderContent>
+                </MudCardHeader>
+                <MudCardContent>
+                    <div class="mud-list-item">
+                        <MudIcon Icon="@Icons.Material.Code" Color="Color.Primary" Class="mr-5"/>
+                        <MudText Color="Color.Primary">Go</MudText>
+                    </div>
+                    <MudText Typo="Typo.body1">A bot for handling Magic: The Gathering rules and card queries.</MudText>
+                    <MudText Typo="Typo.body1">Currently supports IRC and Slack.</MudText>
+                </MudCardContent>
+                <MudCardActions Class="d-flex justify-center">
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Custom.GitHub" Class="w-50" Link="https://github.com/Fryyyyy/Fryatog" Target="_blank" >Source</MudButton>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+        <MudItem xs="12" sm="6">
+            <MudCard Elevation="25" Class="rounded-lg pb-4">
+                <MudCardHeader>
+                    <CardHeaderContent>
+                        <MudText Typo="Typo.h5" Align="Align.Center">Venser's Journal</MudText>
+                    </CardHeaderContent>
+                </MudCardHeader>
+                <MudCardContent>
+                    <div class="mud-list-item">
+                        <MudIcon Icon="@Icons.Material.Code" Color="Color.Primary" Class="mr-5" />
+                        <MudText Color="Color.Primary">Node.JS, Python</MudText>
+                    </div>
+                    <MudText Typo="Typo.body1">A Magic: The Gathering archive. Tracks diffs from version to version of various rules and policy documents.</MudText>
+                </MudCardContent>
+                <MudCardActions Class="d-flex justify-center">
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="w-50" Link="https://vensersjournal.com/" Target="_blank">Go To Site</MudButton>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+</MudContainer>

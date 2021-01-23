@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MudBlazor;
 using MudBlazor.Services;
+using Villawhatever.Resources;
 
 namespace Villawhatever
 {
@@ -27,6 +28,8 @@ namespace Villawhatever
             services.AddMudBlazorDialog();
             services.AddMudBlazorSnackbar();
             services.AddMudBlazorResizeListener();
+
+            services.Configure<ColorConfig>(Configuration.GetSection("Colors"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
