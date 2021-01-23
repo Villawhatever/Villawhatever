@@ -21,7 +21,7 @@ namespace Villawhatever.Pages
             base.OnAfterRender(firstRender);
             if (firstRender)
             {
-                stuffTimer = new Timer(GetNewThing, null, 0, 10000);
+                stuffTimer = new Timer(GetNewThing, null, 0, 5000);
             }
         }
 
