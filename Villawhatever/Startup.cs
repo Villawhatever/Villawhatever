@@ -1,11 +1,17 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MudBlazor;
 using MudBlazor.Services;
+using Villawhatever.AWS;
 using Villawhatever.Resources;
+using Villawhatever.Shared;
+using Villawhatever.Shared.Services.Implementations;
+using Villawhatever.Shared.Services.Interfaces;
 
 namespace Villawhatever
 {
@@ -30,6 +36,22 @@ namespace Villawhatever
             services.AddMudBlazorResizeListener();
 
             services.Configure<ColorConfig>(Configuration.GetSection("Colors"));
+
+            
+            var builder = new SqlConnectionStringBuilder(Configuration.GetConnectionString("Blogawhatever"));
+// Debug grabs local credentials to save some AWS hits 
+#if DEBUG
+            builder.UserID = Configuration["dbUsername"];
+            builder.Password = Configuration["dbPassword"];
+#else
+            var secret = AwsSecretManager.GetSecret().Result;
+            builder.UserID = secret.Username,
+            builder.Password = secret.Password
+#endif
+            
+            services.AddDbContext<BlogDbContext>(options => options.UseSqlServer(builder.ConnectionString));
+
+            services.AddTransient<IPostDataService, PostDataService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

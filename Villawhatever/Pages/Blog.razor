@@ -1,0 +1,32 @@
+﻿@page "/blog" 
+
+@inherits DirtiableBase
+
+<LoadingIndicator NullCheckObject="Posts">
+    <MudGrid Justify="Justify.SpaceAround">
+        @foreach (Post post in Posts)
+        {
+            <MudItem xs="12" sm="6" md="4">
+                <MudCard Elevation="25" Class="rounded-lg pb-4 h-100">
+                    <MudCardHeader>
+                        <CardHeaderContent>
+                            <MudText Typo="Typo.h5">@post.Title</MudText>
+                        </CardHeaderContent>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudText Color="Color.Primary">@($"{post.DatePosted:d}")</MudText>
+                        <MudText Typo="Typo.body1">
+                            @{
+                                var content = post.Content.Length <= MAX_POST_LENGTH ? post.Content : post.Content.Substring(0, MAX_POST_LENGTH) + "...";
+                                <MarkdownView Content="@content" />
+                            }
+                        </MudText>
+                    </MudCardContent>
+                    <MudCardActions Class="d-flex justify-right">
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary" EndIcon="@Icons.Material.KeyboardArrowRight" Class="w-50" Link=@($"/post/{post.Slug}")>Read More</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+        }
+    </MudGrid>
+</LoadingIndicator>

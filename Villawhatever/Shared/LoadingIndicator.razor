@@ -1,0 +1,10 @@
+﻿@if (NullCheckObject == null)
+{
+    <MudProgressCircular Color="Color.Primary" Indeterminate="true" StrokeWidth="2" Style="margin: auto; display: flex;" Size="Size.Large" />
+}
+else
+{
+    <div class="fade-in">
+        @ChildContent
+    </div>
+}
